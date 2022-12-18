@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js + Tailwindcss + storybook
 
-## Getting Started
+## tailwind + nextjs
 
-First, run the development server:
+https://tailwindcss.com/docs/guides/nextjs
 
-```bash
-npm run dev
-# or
-yarn dev
+## storybook installation
+
+npx storybook@next init
+
+## tailwind.config.js (update)
+
+- storybook by default creates a 'stories' folder and this needs to be included in tailwind.config.js
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "./stories/**/*.{js,ts,jsx,tsx}", //add this
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## .storybook/preview.js (update)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- update the preview by importing 'styles/globals.css'
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```js
+import "../styles/globals.css";
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+export const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+};
+```
 
-## Learn More
+## run
 
-To learn more about Next.js, take a look at the following resources:
+```cmd
+<!-- storybook -->
+npm run storybook
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```cmd
+<!-- dev -->
+npm run dev
+```
