@@ -6,7 +6,11 @@ https://tailwindcss.com/docs/guides/nextjs
 
 ## storybook installation
 
+- https://storybook.js.org/blog/integrate-nextjs-and-storybook-automatically/
+
+```cmd
 npx storybook@next init
+```
 
 ## tailwind.config.js (update)
 
@@ -29,7 +33,7 @@ module.exports = {
 
 ## .storybook/preview.js (update)
 
-- update the preview by importing 'styles/globals.css'
+- update the preview by importing tailwind global styles 'styles/globals.css'
 
 ```js
 import "../styles/globals.css";
