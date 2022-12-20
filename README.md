@@ -107,3 +107,10 @@ npm i styled-components-modifiers
 
 - https://redux-toolkit.js.org/tutorials/quick-start
   npm install @reduxjs/toolkit react-redux
+
+## run project
+
+```
+npm run dev
+npm run storybook
+```
