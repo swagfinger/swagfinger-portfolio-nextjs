@@ -98,8 +98,8 @@ export const parameters = {
 
 ## styled components
 
-npm i styled-components
-npm i styled-components-modifiers
+npm i styled-components --legacy-peer-deps
+npm i styled-components-modifiers --legacy-peer-deps
 
 ---
 
