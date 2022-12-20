@@ -1,15 +1,20 @@
-# Next.js + Tailwindcss + storybook
+# Next.js + Tailwindcss + storybook + Reduxtoolkit
 
-## tailwind + nextjs
+## 1. [tailwind + nextjs](https://tailwindcss.com/docs/guides/nextjs)
 
-https://tailwindcss.com/docs/guides/nextjs
+```
+npx create-next-app@latest my-project --typescript --eslint
+```
 
-## storybook installation
+- cd my-project
+- Tailwind CSS v3.2
 
-- https://storybook.js.org/blog/integrate-nextjs-and-storybook-automatically/
+```
+npm install -D tailwindcss postcss autoprefixer
+```
 
-```cmd
-npx storybook@next init
+```
+npx tailwindcss init -p
 ```
 
 ## tailwind.config.js (update)
@@ -31,6 +36,23 @@ module.exports = {
 };
 ```
 
+```css
+/* ./styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+---
+
+## 2. storybook installation
+
+- https://storybook.js.org/blog/integrate-nextjs-and-storybook-automatically/
+
+```cmd
+npx storybook@next init
+```
+
 ## .storybook/preview.js (update)
 
 - update the preview by importing tailwind global styles 'styles/globals.css'
@@ -49,14 +71,16 @@ export const parameters = {
 };
 ```
 
-## run
+---
 
-```cmd
-<!-- storybook -->
-npm run storybook
-```
+## styled components
 
-```cmd
-<!-- dev -->
-npm run dev
-```
+npm i styled-components
+npm i styled-components-modifiers
+
+---
+
+## reduxtoolkit
+
+- https://redux-toolkit.js.org/tutorials/quick-start
+  npm install @reduxjs/toolkit react-redux
