@@ -107,7 +107,7 @@ npm i styled-components-modifiers --legacy-peer-deps
 ## reduxtoolkit
 
 - https://redux-toolkit.js.org/tutorials/quick-start
-  npm install @reduxjs/toolkit react-redux
+  npm install @reduxjs/toolkit react-redux --legacy-peer-deps
 
 ## run project
 
