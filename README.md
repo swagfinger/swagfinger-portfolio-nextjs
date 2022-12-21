@@ -99,6 +99,7 @@ export const parameters = {
 ## styled components
 
 npm i styled-components --legacy-peer-deps
+
 npm i styled-components-modifiers --legacy-peer-deps
 
 ---
@@ -112,5 +113,6 @@ npm i styled-components-modifiers --legacy-peer-deps
 
 ```
 npm run dev
+
 npm run storybook
 ```
