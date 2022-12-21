@@ -1,47 +1,62 @@
-import { useState } from 'react';
+import type { NextPage } from 'next'
+import Head from 'next/head'
 
-import {
-  useAppDispatch,
-  useAppSelector,
-} from '../store/hooks';
+import Counter from '../components/counter/Counter';
+import styles from '../styles/Home.module.css'
 
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  selectCount,
-} from '../components/counter/counterSlice';
-
-const IndexPage:React.FC = () => {
-  const dispatch = useAppDispatch();
-  const count = useAppSelector(selectCount);
-  const [incrementAmount, setIncrementAmount] = useState<number>(0);
-
+const IndexPage: NextPage = () => {
   return (
-    <>
-      <h1>Welcome to the greatest app in the world!</h1>
-      <h2>
-        The current number is
-        {count}
-      </h2>
-      <div>
-        <input
-          value={incrementAmount}
-          onChange={(e)=>setIncrementAmount(Number(e.target.value))}
-          type="number"
-        />
-        <button className="btn bg-red-400 border border-neutral-600"
-          onClick={()=>dispatch(incrementByAmount(Number(incrementAmount)))}
-        >
-          Increment by amount
-        </button>
-      </div>
-      <div>
-        <button className="btn bg-red-400 border border-neutral-600" onClick={() => dispatch(decrement())}>Decrement by 1</button>
-        <button className="btn bg-red-400 border border-neutral-600" onClick={() => dispatch(increment())}>Increment by 1</button>
-      </div>
-    </>
-  );
-};
+    <div className={styles.container}>
+      <Head>
+        <title>Redux Toolkit</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <header className={styles.header}>
+        <Counter />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <span>
+          <span>Learn </span>
+          <a
+            className={styles.link}
+            href="https://reactjs.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            React
+          </a>
+          <span>, </span>
+          <a
+            className={styles.link}
+            href="https://redux.js.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Redux
+          </a>
+          <span>, </span>
+          <a
+            className={styles.link}
+            href="https://redux-toolkit.js.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Redux Toolkit
+          </a>
+          ,<span> and </span>
+          <a
+            className={styles.link}
+            href="https://react-redux.js.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            React Redux
+          </a>
+        </span>
+      </header>
+    </div>
+  )
+}
 
-export default IndexPage;
+export default IndexPage
